@@ -23,6 +23,12 @@ Here are some screenshots and demo videos of the Inky Dashboard in action!
 |:--------------:|:-----------:|:------------:|:-----------:|
 | ![Main Dashboard](images/main(1).png) | ![Main Changes](images/main_changes(2).png) | ![Spotify HTTP](images/spotify_http(1).png) | ![Spotify Jam](images/spotify_jam(2).png) |
 
+### In-Person Photos
+
+| Front View | Back View |
+|:----------:|:---------:|
+| ![In Person](images/in_person.jpg) | ![Back](images/back.jpg) |
+
 ### Videos
 
 - **Spotify Controls Demo:**  
