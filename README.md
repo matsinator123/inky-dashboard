@@ -46,5 +46,5 @@ The dashboard visually tracks appliance usage over time. Here’s how the dishwa
 
 | Running | Just Finished | 1+ Days Ago | 3+ Days Ago | 7+ Days Ago |
 |:-------:|:-------------:|:-----------:|:-----------:|:-----------:|
-| ![Running](assets/appliances/dishwasher_2.png) | ![Just Finished](assets/appliances/dishwasher_1.png) | ![1+ Days](assets/appliances/dishwasher_3.png) | ![3+ Days](assets/appliances/dishwasher_4.png) | ![7+ Days](assets/appliances/dishwasher_5.png) |
+| ![Running](inky-3/inky-dashboard/assets/appliances/dishwasher_2.png) | ![Just Finished](inky-3/inky-dashboard/assets/appliances/dishwasher_1.png) | ![1+ Days](inky-3/inky-dashboard/assets/appliances/dishwasher_3.png) | ![3+ Days](inky-3/inky-dashboard/assets/appliances/dishwasher_4.png) | ![7+ Days](inky-3/inky-dashboard/assets/appliances/dishwasher_5.png) |
 | Running now | Finished today | 1–2 days ago | 3–6 days ago | 7+ days ago |
