@@ -37,7 +37,7 @@ Here are some screenshots and demo videos of the Inky Dashboard in action!
 
 | eavening reading | time to sleep |
 |:----------:|:---------:|
-| ![IMG_6964.jpg](images/IMG_6964.jpg) | ![IMG_6966.jpg](images/IMG_6966.jpg) |
+| ![IMG_6964.jpeg](images/IMG_6964.jpeg) | ![IMG_6966.jpeg](images/IMG_6966.jpeg) |
 
 ### Videos
 
