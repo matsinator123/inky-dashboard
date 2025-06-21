@@ -33,6 +33,12 @@ Here are some screenshots and demo videos of the Inky Dashboard in action!
 |:----------:|:---------:|
 | ![In Person](images/in_person.jpg) | ![Back](images/back.jpg) |
 
+### cooldown mode
+
+| eavening reading | time to sleep |
+|:----------:|:---------:|
+| ![reading](images/IMG_6964.jpg) | ![sleep](images/IMG_6966.jpg) |
+
 ### Videos
 
 - **Spotify Controls Demo:**  
