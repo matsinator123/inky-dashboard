@@ -46,11 +46,11 @@ The dashboard visually tracks appliance usage over time. Here’s how the dishwa
 
 | State | Image | Description |
 |:-----:|:-----:|:------------|
-| Running | ![Dishwasher Running](assets/appliances/dishwasher_2.png) | Dishwasher is currently running. |
-| Recently Done | ![Dishwasher Just Finished](assets/appliances/dishwasher_1.png) | Dishwasher finished very recently (today or just now). |
-| 1+ Days Ago | ![Dishwasher 1+ Days](assets/appliances/dishwasher_3.png) | Last run was 1 or 2 days ago. |
-| 3+ Days Ago | ![Dishwasher 3+ Days](assets/appliances/dishwasher_4.png) | Last run was 3 to 6 days ago. |
-| 7+ Days Ago | ![Dishwasher 7+ Days](assets/appliances/dishwasher_5.png) | Last run was a week or more ago. |
+| Running | ![Dishwasher Running](inky-3/inky-dashboard/assets/appliances/dishwasher_2.png) | Dishwasher is currently running. |
+| Recently Done | ![Dishwasher Just Finished](inky-3/inky-dashboard/assets/appliances/dishwasher_1.png) | Dishwasher finished very recently (today or just now). |
+| 1+ Days Ago | ![Dishwasher 1+ Days](inky-3/inky-dashboard/assets/appliances/dishwasher_3.png) | Last run was 1 or 2 days ago. |
+| 3+ Days Ago | ![Dishwasher 3+ Days](inky-3/inky-dashboard/assets/appliances/dishwasher_4.png) | Last run was 3 to 6 days ago. |
+| 7+ Days Ago | ![Dishwasher 7+ Days](inky-3/inky-dashboard/assets/appliances/dishwasher_5.png) | Last run was a week or more ago. |
 
 **How it works:**  
 The dashboard uses the time since the last run and whether the appliance is running to select the appropriate icon, making it easy to see at a glance when you last used your dishwasher.
