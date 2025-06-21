@@ -17,6 +17,8 @@ A hobby project developed on a Raspberry Pi 5, designed to drive a 13.3" Inky Im
 
 Here are some screenshots and demo videos of the Inky Dashboard in action!
 
+![Inky Dashboard Demo](images/ezgif.com-optimize.gif)
+
 ### Photos
 
 | Main Dashboard | Main Changes | Spotify HTTP | Spotify Jam |
