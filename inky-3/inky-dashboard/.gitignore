@@ -21,3 +21,7 @@ simulated_output.png
 # Data folders (if any)
 data/
 tokens/
+
+.gitignore file:
+
+.cache-matsinator1
