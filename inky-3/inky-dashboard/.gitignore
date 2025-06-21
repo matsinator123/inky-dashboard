@@ -1,0 +1,23 @@
+# Secrets and credentials
+auth/*
+!auth/.gitkeep
+
+# State and data
+state.json
+*.pickle
+*.cache
+*.log
+*.db
+
+# Python/OS stuff
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Output images
+simulated_output.png
+
+# Data folders (if any)
+data/
+tokens/
