@@ -64,3 +64,4 @@ The dashboard also visualizes recent rainfall using a series of icons:
 |:---:|:----------:|:-------------:|:----------:|
 | ![Dry](inky-3/inky-dashboard/assets/appliances/rain_gauge_1.png) | ![Light Rain](inky-3/inky-dashboard/assets/appliances/rain_gauge_2.png) | ![Moderate Rain](inky-3/inky-dashboard/assets/appliances/rain_gauge_3.png) | ![Heavy Rain](inky-3/inky-dashboard/assets/appliances/rain_gauge_4.png) |
 | No recent rain | Light rainfall | Moderate rainfall | Heavy rainfall |
+ 
