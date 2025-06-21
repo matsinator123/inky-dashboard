@@ -13,6 +13,7 @@ A hobby project developed on a Raspberry Pi 5, designed to drive a 13.3" Inky Im
 - Multiple display modes (customizable views)
 - working rain gauge
 - routines (Daniel mode on daniel days between hours 19-20, cooldown mode @ time and @ unless spotify is playing)
+- only updates the desplay when there is a visable chanhe
 
 
 ## Showcase
