@@ -11,6 +11,7 @@ A hobby project developed on a Raspberry Pi 5, designed to drive a 13.3" Inky Im
 - Bluetooth speaker status and controls
 - HTTP API for data updates
 - Multiple display modes (customizable views)
+- working rain gauge
 
 
 ## Showcase
@@ -39,4 +40,18 @@ Here are some screenshots and demo videos of the Inky Dashboard in action!
 - **Switching from Spotify to Main Screen:**  
   [Watch spotify_to_main.mp4](images/spotify_to_main.mp4)
 
+### Appliance Status Showcase
+
+The dashboard visually tracks appliance usage over time. Here’s how the dishwasher icon changes depending on when it was last run and whether it’s currently running:
+
+| State | Image | Description |
+|:-----:|:-----:|:------------|
+| Running | ![Dishwasher Running](assets/appliances/dishwasher_2.png) | Dishwasher is currently running. |
+| Recently Done | ![Dishwasher Just Finished](assets/appliances/dishwasher_1.png) | Dishwasher finished very recently (today or just now). |
+| 1+ Days Ago | ![Dishwasher 1+ Days](assets/appliances/dishwasher_3.png) | Last run was 1 or 2 days ago. |
+| 3+ Days Ago | ![Dishwasher 3+ Days](assets/appliances/dishwasher_4.png) | Last run was 3 to 6 days ago. |
+| 7+ Days Ago | ![Dishwasher 7+ Days](assets/appliances/dishwasher_5.png) | Last run was a week or more ago. |
+
+**How it works:**  
+The dashboard uses the time since the last run and whether the appliance is running to select the appropriate icon, making it easy to see at a glance when you last used your dishwasher.
 ---
