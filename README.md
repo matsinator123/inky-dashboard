@@ -8,10 +8,11 @@ A hobby project developed on a Raspberry Pi 5, designed to drive a 13.3" Inky Im
 - Spotify playback info and controls
 - Appliance usage tracking
 - Calendar integration (Google Calendar)
-- Bluetooth speaker status and controls
-- HTTP API for data updates
+- Bluetooth speaker controls
+- HTTP for spotify jam QrCode
 - Multiple display modes (customizable views)
 - working rain gauge
+- routines (Daniel mode on daniel days between hours 19-20, cooldown mode @ time and @ unless spotify is playing)
 
 
 ## Showcase
