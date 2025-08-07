@@ -8,10 +8,12 @@ A hobby project developed on a Raspberry Pi 5, designed to drive a 13.3" Inky Im
 - Spotify playback info and controls
 - Appliance usage tracking
 - Calendar integration (Google Calendar)
-- Bluetooth speaker status and controls
-- HTTP API for data updates
+- Bluetooth speaker controls
+- HTTP for spotify jam QrCode
 - Multiple display modes (customizable views)
 - working rain gauge
+- routines (Daniel mode on daniel days between hours 19-20, cooldown mode @ time and @ unless spotify is playing)
+- only updates the desplay when there is a visable change
 
 
 ## Showcase
@@ -32,6 +34,12 @@ Here are some screenshots and demo videos of the Inky Dashboard in action!
 |:----------:|:---------:|
 | ![In Person](images/in_person.jpg) | ![Back](images/back.jpg) |
 
+### cooldown mode
+
+| eavening reading | time to sleep |
+|:----------:|:---------:|
+| ![IMG_6964.jpeg](images/IMG_6964.jpeg) | ![IMG_6966.jpeg](images/IMG_6966.jpeg) |
+
 ### Videos
 
 - **Spotify Controls Demo:**  
@@ -49,7 +57,7 @@ The dashboard visually tracks appliance usage over time. Here’s how the dishwa
 | ![Running](inky-3/inky-dashboard/assets/appliances/dishwasher_2.png) | ![Just Finished](inky-3/inky-dashboard/assets/appliances/dishwasher_1.png) | ![1+ Days](inky-3/inky-dashboard/assets/appliances/dishwasher_3.png) | ![3+ Days](inky-3/inky-dashboard/assets/appliances/dishwasher_4.png) | ![7+ Days](inky-3/inky-dashboard/assets/appliances/dishwasher_5.png) |
 | Running now | Finished today | 1–2 days ago | 3–6 days ago | 7+ days ago |
 
-### Rain Gauge Status Showcase
+### Rain Gauge Status Showcase 
 
 The dashboard also visualizes recent rainfall using a series of icons:
 
@@ -57,3 +65,4 @@ The dashboard also visualizes recent rainfall using a series of icons:
 |:---:|:----------:|:-------------:|:----------:|
 | ![Dry](inky-3/inky-dashboard/assets/appliances/rain_gauge_1.png) | ![Light Rain](inky-3/inky-dashboard/assets/appliances/rain_gauge_2.png) | ![Moderate Rain](inky-3/inky-dashboard/assets/appliances/rain_gauge_3.png) | ![Heavy Rain](inky-3/inky-dashboard/assets/appliances/rain_gauge_4.png) |
 | No recent rain | Light rainfall | Moderate rainfall | Heavy rainfall |
+ 
