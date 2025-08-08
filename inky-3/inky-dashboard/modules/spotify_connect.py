@@ -60,19 +60,19 @@ class SpotifyClient:
         token_info = self._auth_manager.get_cached_token()
         
         if not token_info:
-            print("[INFO] No cached Spotify token found, need to authenticate")
+            logging.info("No cached Spotify token found, need to authenticate")
             return False
         
         # Check if token is expired
         if self._auth_manager.is_token_expired(token_info):
-            print("[INFO] Spotify token expired, refreshing...")
+            logging.info("Spotify token expired, refreshing...")
             try:
                 token_info = self._auth_manager.refresh_access_token(
                     token_info['refresh_token']
                 )
-                print("[INFO] Spotify token refreshed successfully")
+                logging.info("Spotify token refreshed successfully")
             except Exception as e:
-                print(f"[ERROR] Failed to refresh Spotify token: {e}")
+                logging.error(f"Failed to refresh Spotify token: {e}")
                 return False
         
         return True
@@ -81,9 +81,7 @@ class SpotifyClient:
         """Get authenticated Spotify client."""
         if not self._client:
             if not self._ensure_authenticated():
-                raise Exception(
-                    "Spotify authentication required. Please run the initial setup."
-                )
+                raise Exception("Spotify authentication required. Please run the initial setup.")
             
             self._client = spotipy.Spotify(auth_manager=self._auth_manager)
         
@@ -98,7 +96,7 @@ class SpotifyClient:
         
         # Get authorization URL
         auth_url = auth_manager.get_authorize_url()
-        print(f"Please visit this URL to authorize the application: {auth_url}")
+        logging.info(f"Please visit this URL to authorize the application: {auth_url}")
         
         # Get the authorization code from user
         response = input("Enter the URL you were redirected to: ")
@@ -108,11 +106,11 @@ class SpotifyClient:
         token_info = auth_manager.get_access_token(code)
         
         if token_info:
-            print("[INFO] Spotify authentication successful!")
+            logging.info("Spotify authentication successful!")
             self._client = spotipy.Spotify(auth_manager=auth_manager)
             return True
         else:
-            print("[ERROR] Spotify authentication failed")
+            logging.error("Spotify authentication failed")
             return False
     
     def get_current_track(self):
@@ -141,14 +139,14 @@ class SpotifyClient:
             
         except spotipy.exceptions.SpotifyException as e:
             if e.http_status == 401:
-                print("[WARNING] Spotify token expired, attempting refresh...")
+                logging.warning("Spotify token expired, attempting refresh...")
                 self._client = None  # Force re-authentication
                 return self.get_current_track()  # Retry once
             else:
-                print(f"[ERROR] Spotify API error: {e}")
+                logging.error(f"Spotify API error: {e}")
                 return None
         except Exception as e:
-            print(f"[ERROR] Failed to get current track: {e}")
+            logging.error(f"Failed to get current track: {e}")
             return None
 
 # Global client instance
@@ -172,8 +170,7 @@ def get_jam_url():
     """Get the current Spotify Jam URL if available."""
     try:
         if JAM_PATH.exists():
-            with open(JAM_PATH, "r") as f:
-                return f.read().strip() or None
+            return JAM_PATH.read_text().strip() or None
     except Exception:
         pass
     return None

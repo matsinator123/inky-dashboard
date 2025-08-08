@@ -6,8 +6,12 @@ Handles loading, saving, and updating appliance run states and timers.
 import json
 from datetime import datetime, timedelta
 import os
+import tempfile
+import threading
+import logging
 
 STATE_FILE = "state.json"
+_STATE_LOCK = threading.Lock()
 
 # Default appliance run durations
 RUN_DURATIONS = {
@@ -43,16 +47,27 @@ def load_state():
     return {}
 
 def save_state(state):
-    """Save appliance state to JSON file."""
+    """Save appliance state to JSON file atomically and thread-safely."""
+    serializable = {
+        name: {"last_run": data["last_run"].isoformat(), "is_running": data["is_running"]}
+        for name, data in state.items()
+    }
     try:
-        with open(STATE_FILE, "w") as f:
-            serializable = {
-                name: {"last_run": data["last_run"].isoformat(), "is_running": data["is_running"]}
-                for name, data in state.items()
-            }
-            json.dump(serializable, f, indent=2)
-    except Exception:
-        pass
+        with _STATE_LOCK:
+            dir_name = os.path.dirname(STATE_FILE) or "."
+            fd, tmp_path = tempfile.mkstemp(prefix="state.", suffix=".tmp", dir=dir_name)
+            try:
+                with os.fdopen(fd, "w") as tmp_f:
+                    json.dump(serializable, tmp_f, indent=2)
+                os.replace(tmp_path, STATE_FILE)
+            finally:
+                try:
+                    if os.path.exists(tmp_path):
+                        os.remove(tmp_path)
+                except Exception:
+                    pass
+    except Exception as e:
+        logging.error(f"Failed to save state: {e}")
 
 def mark_appliance_run(state, name):
     """Mark an appliance as started running."""

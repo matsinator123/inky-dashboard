@@ -33,12 +33,11 @@ BUTTON_ACTIONS = {
     }
 }
 
-# GPIO setup for Pi 5
-INPUT = gpiod.LineSettings(direction=Direction.INPUT, bias=Bias.PULL_UP, edge_detection=Edge.FALLING)
-chip = gpiodevice.find_chip_by_platform()
-OFFSETS = [chip.line_offset_from_id(id) for id in BUTTONS]
-line_config = dict.fromkeys(OFFSETS, INPUT)
-request = chip.request_lines(consumer="inky-dashboard-buttons", config=line_config)
+# Lazy-initialized globals after setup_buttons() to avoid import-time failures
+INPUT = None
+chip = None
+OFFSETS = None
+request = None
 
 def is_spotify_mode():
     """Check if Spotify is actively playing music."""
@@ -100,14 +99,26 @@ def handle_button(event):
     handle_button_press(label)
 
 def setup_buttons():
-    """GPIO setup is handled at module level."""
-    logging.info("Button handler ready")
+    """Initialize GPIO lines for button listening (call once)."""
+    global INPUT, chip, OFFSETS, request
+    try:
+        INPUT = gpiod.LineSettings(direction=Direction.INPUT, bias=Bias.PULL_UP, edge_detection=Edge.FALLING)
+        chip = gpiodevice.find_chip_by_platform()
+        OFFSETS = [chip.line_offset_from_id(id) for id in BUTTONS]
+        line_config = dict.fromkeys(OFFSETS, INPUT)
+        request = chip.request_lines(consumer="inky-dashboard-buttons", config=line_config)
+        logging.info("Button handler ready")
+    except Exception as e:
+        logging.error(f"GPIO setup failed: {e}")
 
 def listen_for_presses():
     """Main button listening loop."""
     logging.info("Listening for button presses...")
     try:
         while True:
+            if request is None:
+                time.sleep(0.25)
+                continue
             for event in request.read_edge_events():
                 handle_button(event)
                 time.sleep(DEBOUNCE_DELAY)

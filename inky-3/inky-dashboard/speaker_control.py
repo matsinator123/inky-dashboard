@@ -15,9 +15,9 @@ import logging
 # Add project directory to path
 sys.path.append('/home/pi/inky-dashboard')
 from modules.spotify_connect import get_spotify_client
+from config import SPEAKER_NAME
 
 # Configuration
-SPEAKER_NAME = "VAPPEBY"
 VOLUME_STEP = 10
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")

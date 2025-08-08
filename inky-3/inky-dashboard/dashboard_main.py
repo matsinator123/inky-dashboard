@@ -14,7 +14,7 @@ DISPLAY_UPDATE_INTERVAL = 5
 SIMULATED_OUTPUT_PATH = "simulated_output.png"
 
 # Logging setup
-logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
+logging.basicConfig(level=os.getenv("INKY_LOG_LEVEL", "INFO"), format="%(asctime)s [%(levelname)s] %(message)s")
 
 # Inky display
 inky_display = get_auto()()

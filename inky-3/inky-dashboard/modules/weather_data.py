@@ -6,39 +6,62 @@ Provides current weather conditions and temperature forecasts.
 import requests
 from datetime import datetime
 import os
+from config import LAT as CFG_LAT, LON as CFG_LON
 
-# Coordinates for Kristiansand (change if needed)
-LAT, LON = 58.1624, 7.9983
+# Coordinates (configurable via env vars in config.py)
+LAT, LON = CFG_LAT, CFG_LON
 
 # User-Agent as required by MET Norway's terms
 HEADERS = {
-    "User-Agent": "InkyDisplayProject/1.0 (smule12@gmail.com)"
+    "User-Agent": os.getenv("MET_USER_AGENT", "InkyDisplayProject/1.0 (contact@example.com)")
 }
 
 # Maps MET symbol codes to icon filenames
 SYMBOL_ICON_MAP = {
+    # Clear / fair
     "clearsky_day": "clear_day.png",
     "clearsky_night": "clear_night.png",
-    "cloudy": "cloudy.png",
     "fair_day": "partly_cloudy.png",
     "fair_night": "partly_cloudy.png",
-    "fog": "cloudy.png",
-    "heavyrain": "rain.png",
-    "heavyrainandthunder": "thunder.png",
-    "heavyrainshowers_day": "rain.png",
-    "heavysnow": "snow.png",
-    "heavysnowshowers_day": "snow.png",
-    "lightrain": "sleet.png",
-    "lightrainshowers_day": "sleet.png",
-    "lightssnow": "snow.png",
     "partlycloudy_day": "partly_cloudy.png",
     "partlycloudy_night": "partly_cloudy.png",
+
+    # Cloud / fog
+    "cloudy": "cloudy.png",
+    "fog": "cloudy.png",
+
+    # Rain
+    "lightrain": "rain.png",
+    "lightrainshowers_day": "rain.png",
+    "lightrainshowers_night": "rain.png",
     "rain": "rain.png",
     "rainshowers_day": "rain.png",
+    "rainshowers_night": "rain.png",
+    "heavyrain": "rain.png",
+    "heavyrainshowers_day": "rain.png",
+    "heavyrainshowers_night": "rain.png",
+
+    # Sleet
     "sleet": "sleet.png",
+    "sleetshowers_day": "sleet.png",
+    "sleetshowers_night": "sleet.png",
+
+    # Snow
+    "lightsnow": "snow.png",  # fixed from lightssnow
+    "lightsnowshowers_day": "snow.png",
+    "lightsnowshowers_night": "snow.png",
     "snow": "snow.png",
     "snowshowers_day": "snow.png",
-    "thunderstorm": "thunder.png"
+    "snowshowers_night": "snow.png",
+    "heavysnow": "snow.png",
+    "heavysnowshowers_day": "snow.png",
+    "heavysnowshowers_night": "snow.png",
+
+    # Thunder
+    "heavyrainandthunder": "thunder.png",
+    "lightrainandthunder": "thunder.png",
+    "rainandthunder": "thunder.png",
+    "thunderstorm": "thunder.png",
 }
 
 def get_weather_icon_path(weather_data):
@@ -51,7 +74,7 @@ def get_weather(full_forecast=False):
     """Fetch weather data from MET Norway API."""
     url = f"https://api.met.no/weatherapi/locationforecast/2.0/compact?lat={LAT}&lon={LON}"
     try:
-        response = requests.get(url, headers=HEADERS)
+        response = requests.get(url, headers=HEADERS, timeout=5)
         response.raise_for_status()
         data = response.json()
     except Exception:

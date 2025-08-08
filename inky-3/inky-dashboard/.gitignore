@@ -1,9 +1,14 @@
 # Secrets and credentials
 auth/*
 !auth/.gitkeep
+auth/.spotify_cache
+auth/google_token.json
+auth/spotify_credentials.json
+auth/google_credentials.json
 
 # State and data
 state.json
+jam_url.txt
 *.pickle
 *.cache
 *.log
@@ -14,6 +19,14 @@ __pycache__/
 *.pyc
 venv/
 .env
+.python-version
+.mypy_cache/
+.pytest_cache/
+
+# Packaging/build
+build/
+dist/
+*.egg-info/
 
 # Output images
 simulated_output.png
@@ -25,3 +38,10 @@ tokens/
 .gitignore file:
 
 .cache-matsinator1
+
+# Editor/OS clutter
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace

@@ -5,6 +5,7 @@ Draws min, current, and max temperature with a weather icon.
 
 from modules.weather_data import get_weather_icon_path
 from PIL import Image, ImageFont
+import logging
 from colors import COLORS
 import os
 
@@ -21,6 +22,7 @@ def draw_weather(draw, image, x, y, weather_data):
         except Exception:
             error_font = ImageFont.load_default()
         draw.text((x, y), "Weather Error", fill=COLORS["red"], font=error_font)
+        logging.warning("Weather data contained error; displayed error notice")
         return
 
     # Try to load a big, clear font
@@ -66,10 +68,10 @@ def draw_weather(draw, image, x, y, weather_data):
 
     # Draw weather icon (left of temps)
     icon_path = get_weather_icon_path(weather)
-    if os.path.exists(icon_path):
-        try:
+    try:
+        if os.path.exists(icon_path):
             icon = Image.open(icon_path).convert("RGBA")
             icon = icon.resize((200, 200))
             image.paste(icon, (x - 200, y - 1), icon)
-        except Exception:
-            pass
+    except Exception as e:
+        logging.warning(f"Failed to paste weather icon {icon_path}: {e}")
