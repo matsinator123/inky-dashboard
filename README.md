@@ -11,9 +11,11 @@ A hobby project developed on a Raspberry Pi 5, designed to drive a 13.3" Inky Im
 - Bluetooth speaker controls
 - HTTP for spotify jam QrCode
 - Multiple display modes (customizable views)
-- working rain gauge
-- routines (Daniel mode on daniel days between hours 19-20, cooldown mode @ time and @ unless spotify is playing)
-- only updates the desplay when there is a visable change
+- Working rain gauge
+- Routines (Daniel mode on daniel days between hours 19-20, cooldown mode @ time and @ unless spotify is playing)
+- Added custom audio to routines
+- Flask-based web authentication
+- Only updates the desplay when there is a visable change
 
 
 ## Showcase
